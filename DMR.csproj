@@ -1,0 +1,1283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{D7BD21F2-CF4D-4287-B7C1-10C1C98D68E9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DMR</RootNamespace>
+    <AssemblyName>DMR</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug[Office]|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug[Office]\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;OFFICE_EDITION    !NOLOCK</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release[Office]|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release[Office]\</OutputPath>
+    <DefineConstants>TRACE;OFFICE_EDITION         !NOLOCK</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug[Site]|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug[Site]\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SITE_EDITION   !NOLOCK</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release[Site]|x86'">
+    <OutputPath>bin\Release[Site]\</OutputPath>
+    <DefineConstants>TRACE;SITE_EDITION  </DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>DMR.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AlxSSB, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Release[Office]\AlxSSB.dll</HintPath>
+    </Reference>
+    <Reference Include="AxInterop.ARM">
+      <HintPath>bin\Release[Office]\AxInterop.ARM.dll</HintPath>
+    </Reference>
+    <Reference Include="DMR.XmlSerializers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Release[Office]\DMR.XmlSerializers.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus">
+      <HintPath>bin\Release[Office]\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.ARM">
+      <HintPath>bin\Release[Office]\Interop.ARM.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="SysEnhanced, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Release[Office]\SysEnhanced.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms\Accounts\frmAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Accounts\frmAccount.Designer.cs">
+      <DependentUpon>frmAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Accounts\frmAdminAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Accounts\frmAdminAccount.Designer.cs">
+      <DependentUpon>frmAdminAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Accounts\UserProjectSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Accounts\UserProjectSelection.Designer.cs">
+      <DependentUpon>UserProjectSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Common DBs\HolesOfProjects_Selection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Common DBs\HolesOfProjects_Selection.Designer.cs">
+      <DependentUpon>HolesOfProjects_Selection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Common DBs\MudPropertyFormDB_Selection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Common DBs\MudPropertyFormDB_Selection.Designer.cs">
+      <DependentUpon>MudPropertyFormDB_Selection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DataTransfer\frmDataImport_Office.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DataTransfer\frmDataImport_Office.Designer.cs">
+      <DependentUpon>frmDataImport_Office.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DataTransfer\frmDataImport_Site.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DataTransfer\frmDataImport_Site.Designer.cs">
+      <DependentUpon>frmDataImport_Site.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DrillingFluidsProgram\DrillProgramCostSummaryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DrillingFluidsProgram\DrillProgramCostSummaryForm.Designer.cs">
+      <DependentUpon>DrillProgramCostSummaryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DrlOp\DrilliOpIadcTightSpotForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DrlOp\DrilliOpIadcTightSpotForm.Designer.cs">
+      <DependentUpon>DrilliOpIadcTightSpotForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DrlOp\DrilliOpIadcWashAndReamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DrlOp\DrilliOpIadcWashAndReamForm.Designer.cs">
+      <DependentUpon>DrilliOpIadcWashAndReamForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DrlOp\DrlOpPfrAdditiveForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DrlOp\DrlOpPfrAdditiveForm.Designer.cs">
+      <DependentUpon>DrlOpPfrAdditiveForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Hydraulic\HydraulicForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Hydraulic\HydraulicForm.Designer.cs">
+      <DependentUpon>HydraulicForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Hydraulic\HydraulicNozzlesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Hydraulic\HydraulicNozzlesForm.Designer.cs">
+      <DependentUpon>HydraulicNozzlesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MudProp\MudPropCol_Selection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MudProp\MudPropCol_Selection.Designer.cs">
+      <DependentUpon>MudPropCol_Selection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MudVolManagement\MudVolManCmtSpacerPrdForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MudVolManagement\MudVolManCmtSpacerPrdForm.Designer.cs">
+      <DependentUpon>MudVolManCmtSpacerPrdForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MudVolManagement\MudVolManRecTransPrdForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MudVolManagement\MudVolManRecTransPrdForm.Designer.cs">
+      <DependentUpon>MudVolManRecTransPrdForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MudVolManagement\MudVolManSelToRecForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MudVolManagement\MudVolManSelToRecForm.Designer.cs">
+      <DependentUpon>MudVolManSelToRecForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SoftwareActivation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SoftwareActivation.Designer.cs">
+      <DependentUpon>SoftwareActivation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Class1.cs" />
+    <Compile Include="Helpers\Computation\Hydraulic.cs" />
+    <Compile Include="Helpers\Computation\MudProperties.cs" />
+    <Compile Include="Helpers\Computation\SolidAnalysis.cs" />
+    <Compile Include="Helpers\Computation\TotalVolumeManagement.cs" />
+    <Compile Include="Helpers\Error\InformationManager.cs" />
+    <Compile Include="Helpers\Error\Errors.cs" />
+    <Compile Include="Helpers\Error\MultiButton_Info_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Helpers\Error\MultiButton_Info_Form.Designer.cs">
+      <DependentUpon>MultiButton_Info_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Error\MultiItem_Info_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Helpers\Error\MultiItem_Info_Form.designer.cs">
+      <DependentUpon>MultiItem_Info_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Common DBs\PredefinedValuesFormDB_Selection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Common DBs\PredefinedValuesFormDB_Selection.Designer.cs">
+      <DependentUpon>PredefinedValuesFormDB_Selection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Common DBs\GeologyOfIranFormDB_FieldSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Common DBs\GeologyOfIranFormDB_FieldSelection.Designer.cs">
+      <DependentUpon>GeologyOfIranFormDB_FieldSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Common DBs\PredefinedValuesFormDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Common DBs\PredefinedValuesFormDB.Designer.cs">
+      <DependentUpon>PredefinedValuesFormDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Project-Rig-Well-Report\PrjRigWell_Selection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Project-Rig-Well-Report\PrjRigWell_Selection.Designer.cs">
+      <DependentUpon>PrjRigWell_Selection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Error\SingleItem_Info_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Helpers\Error\SingleItem_Info_Form.Designer.cs">
+      <DependentUpon>SingleItem_Info_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Excel\EPP_ExcelManager.cs" />
+    <Compile Include="Helpers\Input\frmGenerateSiteEdition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Helpers\Input\frmGenerateSiteEdition.Designer.cs">
+      <DependentUpon>frmGenerateSiteEdition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\ShamsiDate.cs" />
+    <Compile Include="Helpers\sLock.cs" />
+    <Compile Include="Helpers\StringManipulation.cs" />
+    <Compile Include="Helpers\Unit\DecimalLookUpTable.cs" />
+    <Compile Include="Helpers\Unit\UnitConverter.cs" />
+    <Compile Include="Helpers\Input\frmMultiInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Helpers\Input\frmMultiInput.Designer.cs">
+      <DependentUpon>frmMultiInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MudLoss\MudLossFLAdditivesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MudLoss\MudLossFLAdditivesForm.Designer.cs">
+      <DependentUpon>MudLossFLAdditivesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MudVolManagement\MudVolManAddedWaterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MudVolManagement\MudVolManAddedWaterForm.Designer.cs">
+      <DependentUpon>MudVolManAddedWaterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MudVolManagement\MudVolManBuiltPrdForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MudVolManagement\MudVolManBuiltPrdForm.Designer.cs">
+      <DependentUpon>MudVolManBuiltPrdForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MudVolManagement\MudVolManTotalWellMergeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MudVolManagement\MudVolManTotalWellMergeForm.Designer.cs">
+      <DependentUpon>MudVolManTotalWellMergeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MudVolManagement\MudVolManTotalWellSelForMergeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MudVolManagement\MudVolManTotalWellSelForMergeForm.Designer.cs">
+      <DependentUpon>MudVolManTotalWellSelForMergeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MudVolManagement\MudVolManTreatedPrdForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MudVolManagement\MudVolManTreatedPrdForm.Designer.cs">
+      <DependentUpon>MudVolManTreatedPrdForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SolidConEq\SolidConEqScreenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SolidConEq\SolidConEqScreenForm.Designer.cs">
+      <DependentUpon>SolidConEqScreenForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SolidConEq\SolidConEqUsedForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SolidConEq\SolidConEqUsedForm.Designer.cs">
+      <DependentUpon>SolidConEqUsedForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Filter Forms\FilterByDateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporting\Filter Forms\FilterByDateForm.Designer.cs">
+      <DependentUpon>FilterByDateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Filter Forms\FilterByDFSForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporting\Filter Forms\FilterByDFSForm.Designer.cs">
+      <DependentUpon>FilterByDFSForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Filter Forms\FilterByDrilledIntervalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporting\Filter Forms\FilterByDrilledIntervalForm.Designer.cs">
+      <DependentUpon>FilterByDrilledIntervalForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Filter Forms\FilterByFormationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporting\Filter Forms\FilterByFormationForm.Designer.cs">
+      <DependentUpon>FilterByFormationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Filter Forms\FilterByHoleSectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporting\Filter Forms\FilterByHoleSectionForm.Designer.cs">
+      <DependentUpon>FilterByHoleSectionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Filter Forms\FilterByRepNumForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporting\Filter Forms\FilterByRepNumForm.Designer.cs">
+      <DependentUpon>FilterByRepNumForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Filter Forms\FilterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporting\Filter Forms\FilterForm.Designer.cs">
+      <DependentUpon>FilterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\SQL\FetchData.cs" />
+    <Compile Include="Helpers\Input\frmInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Helpers\Input\frmInput.Designer.cs">
+      <DependentUpon>frmInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\DGV\DGV_Operations.cs" />
+    <Compile Include="Helpers\DGV\ListFormButtons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Helpers\DGV\ListFormButtons.Designer.cs">
+      <DependentUpon>ListFormButtons.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\DGV\ListFormSelectionButtons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Helpers\DGV\ListFormSelectionButtons.Designer.cs">
+      <DependentUpon>ListFormSelectionButtons.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\LogManager.cs" />
+    <Compile Include="Helpers\AdvancedConvertor.cs" />
+    <Compile Include="Forms\Accounts\RoleAccess.cs" />
+    <Compile Include="Helpers\Encoder_Decoder\EncoderDecoder.cs" />
+    <Compile Include="Forms\Accounts\UserOperations.cs" />
+    <Compile Include="Forms\Accounts\UserRole.cs" />
+    <Compile Include="Helpers\Encoder_Decoder\StringCipher.cs" />
+    <Compile Include="Helpers\SQL\ConnectionManager.cs" />
+    <Compile Include="Helpers\SQL\ProcedureParam.cs" />
+    <Compile Include="Helpers\SQL\Procedures.cs" />
+    <Compile Include="Forms\Common DBs\CasingDataFormDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Common DBs\CasingDataFormDB.Designer.cs">
+      <DependentUpon>CasingDataFormDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Common DBs\CasingDataFormDB_Selection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Common DBs\CasingDataFormDB_Selection.Designer.cs">
+      <DependentUpon>CasingDataFormDB_Selection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\DGV\DGV_Filter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Helpers\DGV\DGV_Filter.Designer.cs">
+      <DependentUpon>DGV_Filter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Common DBs\DrillCollarDataFormDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Common DBs\DrillCollarDataFormDB.Designer.cs">
+      <DependentUpon>DrillCollarDataFormDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DrlOp\DrilliOpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DrlOp\DrilliOpForm.Designer.cs">
+      <DependentUpon>DrilliOpForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Common DBs\DrillCollar_DrillPipe_HeavyWeigh_DataFormDB_Selection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Common DBs\DrillCollar_DrillPipe_HeavyWeigh_DataFormDB_Selection.Designer.cs">
+      <DependentUpon>DrillCollar_DrillPipe_HeavyWeigh_DataFormDB_Selection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Common DBs\DrillingFluidSystemFormDB_Selection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Common DBs\DrillingFluidSystemFormDB_Selection.Designer.cs">
+      <DependentUpon>DrillingFluidSystemFormDB_Selection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Common DBs\DrillPipeDataFormDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Common DBs\DrillPipeDataFormDB.Designer.cs">
+      <DependentUpon>DrillPipeDataFormDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Images.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Images.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MudLoss\MudLossForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MudLoss\MudLossForm.Designer.cs">
+      <DependentUpon>MudLossForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Common DBs\GeneralEquipmentInventoryDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Common DBs\GeneralEquipmentInventoryDataForm.Designer.cs">
+      <DependentUpon>GeneralEquipmentInventoryDataForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Common DBs\GeneralEquipmentInventoryDataForm_Selection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Common DBs\GeneralEquipmentInventoryDataForm_Selection.Designer.cs">
+      <DependentUpon>GeneralEquipmentInventoryDataForm_Selection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Common DBs\GeologyOfIranFormDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Common DBs\GeologyOfIranFormDB.Designer.cs">
+      <DependentUpon>GeologyOfIranFormDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Common DBs\GeologyOfIranFormDB_DataSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Common DBs\GeologyOfIranFormDB_DataSelection.Designer.cs">
+      <DependentUpon>GeologyOfIranFormDB_DataSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Common DBs\GeologyOfIranFormDB_FormationSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Common DBs\GeologyOfIranFormDB_FormationSelection.Designer.cs">
+      <DependentUpon>GeologyOfIranFormDB_FormationSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Common DBs\HeavyWeightFormDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Common DBs\HeavyWeightFormDB.Designer.cs">
+      <DependentUpon>HeavyWeightFormDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Common DBs\HoleSizeFormDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Common DBs\HoleSizeFormDB.Designer.cs">
+      <DependentUpon>HoleSizeFormDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Common DBs\HoleSizeFormDB_Selection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Common DBs\HoleSizeFormDB_Selection.Designer.cs">
+      <DependentUpon>HoleSizeFormDB_Selection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Common DBs\HSE_PPE_DataFormDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Common DBs\HSE_PPE_DataFormDB.Designer.cs">
+      <DependentUpon>HSE_PPE_DataFormDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Common DBs\HSE_PPE_DataFormDB_Selection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Common DBs\HSE_PPE_DataFormDB_Selection.Designer.cs">
+      <DependentUpon>HSE_PPE_DataFormDB_Selection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Common DBs\IADCFormDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Common DBs\IADCFormDB.Designer.cs">
+      <DependentUpon>IADCFormDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Common DBs\IADCFormDB_Selection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Common DBs\IADCFormDB_Selection.Designer.cs">
+      <DependentUpon>IADCFormDB_Selection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Common DBs\LabEquipmentListFormDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Common DBs\LabEquipmentListFormDB.Designer.cs">
+      <DependentUpon>LabEquipmentListFormDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MudProp\MudPropForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MudProp\MudPropForm.Designer.cs">
+      <DependentUpon>MudPropForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MudVolManagement\MudVolManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MudVolManagement\MudVolManagementForm.Designer.cs">
+      <DependentUpon>MudVolManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Project-Rig-Well-Report\ProjectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Project-Rig-Well-Report\ProjectForm.Designer.cs">
+      <DependentUpon>ProjectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\InvManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\InvManagementForm.Designer.cs">
+      <DependentUpon>InvManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Common DBs\DrillingFluidSystemFormDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Common DBs\DrillingFluidSystemFormDB.Designer.cs">
+      <DependentUpon>DrillingFluidSystemFormDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Common DBs\LabEquipmentListFormDB_Selection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Common DBs\LabEquipmentListFormDB_Selection.Designer.cs">
+      <DependentUpon>LabEquipmentListFormDB_Selection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Common DBs\PersonnelListDataFormDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Common DBs\PersonnelListDataFormDB.Designer.cs">
+      <DependentUpon>PersonnelListDataFormDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RemarkForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RemarkForm.Designer.cs">
+      <DependentUpon>RemarkForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReportingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReportingForm.Designer.cs">
+      <DependentUpon>ReportingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Project-Rig-Well-Report\RigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Project-Rig-Well-Report\RigForm.Designer.cs">
+      <DependentUpon>RigForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SolidAnaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SolidAnaForm.Designer.cs">
+      <DependentUpon>SolidAnaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SplashForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SplashForm.Designer.cs">
+      <DependentUpon>SplashForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\SQL\SqlImageHelper.cs" />
+    <Compile Include="Forms\StartupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StartupForm.Designer.cs">
+      <DependentUpon>StartupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Common DBs\PersonnelListDataFormDB_Selection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Common DBs\PersonnelListDataFormDB_Selection.Designer.cs">
+      <DependentUpon>PersonnelListDataFormDB_Selection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Common DBs\ProductListFormDB_Selection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Common DBs\ProductListFormDB_Selection.Designer.cs">
+      <DependentUpon>ProductListFormDB_Selection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SuggestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SuggestForm.Designer.cs">
+      <DependentUpon>SuggestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Project-Rig-Well-Report\WellForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Project-Rig-Well-Report\WellForm.Designer.cs">
+      <DependentUpon>WellForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SolidConEq\SolidConEqForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SolidConEq\SolidConEqForm.Designer.cs">
+      <DependentUpon>SolidConEqForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Common DBs\ProductListFormDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Common DBs\ProductListFormDB.Designer.cs">
+      <DependentUpon>ProductListFormDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Forms\UnitConvForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UnitConvForm.Designer.cs">
+      <DependentUpon>UnitConvForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DrillingFluidsProgram\DrillingFluidsProgramForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DrillingFluidsProgram\DrillingFluidsProgramForm.Designer.cs">
+      <DependentUpon>DrillingFluidsProgramForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Project-Rig-Well-Report\RigWellReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Project-Rig-Well-Report\RigWellReportForm.Designer.cs">
+      <DependentUpon>RigWellReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Report Generator\Daily\DailyReportsXlsx.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DailyReportsXlsx.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Report Generator\ReportType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporting\Report Generator\ReportType.Designer.cs">
+      <DependentUpon>ReportType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Report Generator\Daily\DailyDMR.cs" />
+    <Compile Include="Reporting\Report Generator\frmUnitSelectionForReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporting\Report Generator\frmUnitSelectionForReport.Designer.cs">
+      <DependentUpon>frmUnitSelectionForReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Report Generator\Daily\HSMaterialConsumption.cs" />
+    <Compile Include="Reporting\Report Generator\Daily\HSMaterialCost.cs" />
+    <Compile Include="Reporting\Report Generator\Recap\Recap.cs" />
+    <Compile Include="Reporting\Report Generator\Recap\RecapReportXlsx.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RecapReportXlsx.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Report Generator\Recap\Recap_Hole SectionVolumeAndCostAnalysis.cs" />
+    <Compile Include="Reporting\Report Generator\Recap\Recap_HoleSectionSummary.cs" />
+    <Compile Include="Reporting\Report Generator\Recap\Recap_HoleSectionVolumeAnalysis.cs" />
+    <Compile Include="Reporting\Report Generator\Base\ReportingBase.cs" />
+    <Compile Include="Reporting\Report Generator\Daily\HSWellProgress.cs" />
+    <Compile Include="Reporting\Report Generator\Recap\Recap_HoleSectionMudMaterialConcentrationAndCostAnalysis.cs" />
+    <Compile Include="SiteEdition\Fresh.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Fresh.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\DMRWebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\Accounts\frmAccount.resx">
+      <DependentUpon>frmAccount.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Accounts\frmAdminAccount.resx">
+      <DependentUpon>frmAdminAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Accounts\UserProjectSelection.resx">
+      <DependentUpon>UserProjectSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Common DBs\HolesOfProjects_Selection.resx">
+      <DependentUpon>HolesOfProjects_Selection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Common DBs\MudPropertyFormDB_Selection.resx">
+      <DependentUpon>MudPropertyFormDB_Selection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DataTransfer\frmDataImport_Office.resx">
+      <DependentUpon>frmDataImport_Office.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DataTransfer\frmDataImport_Site.resx">
+      <DependentUpon>frmDataImport_Site.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DrillingFluidsProgram\DrillProgramCostSummaryForm.resx">
+      <DependentUpon>DrillProgramCostSummaryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DrlOp\DrilliOpIadcTightSpotForm.resx">
+      <DependentUpon>DrilliOpIadcTightSpotForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DrlOp\DrilliOpIadcWashAndReamForm.resx">
+      <DependentUpon>DrilliOpIadcWashAndReamForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DrlOp\DrlOpPfrAdditiveForm.resx">
+      <DependentUpon>DrlOpPfrAdditiveForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Hydraulic\HydraulicForm.resx">
+      <DependentUpon>HydraulicForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Hydraulic\HydraulicNozzlesForm.resx">
+      <DependentUpon>HydraulicNozzlesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MudProp\MudPropCol_Selection.resx">
+      <DependentUpon>MudPropCol_Selection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MudVolManagement\MudVolManCmtSpacerPrdForm.resx">
+      <DependentUpon>MudVolManCmtSpacerPrdForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MudVolManagement\MudVolManRecTransPrdForm.resx">
+      <DependentUpon>MudVolManRecTransPrdForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MudVolManagement\MudVolManSelToRecForm.resx">
+      <DependentUpon>MudVolManSelToRecForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SoftwareActivation.resx">
+      <DependentUpon>SoftwareActivation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Helpers\Error\MultiButton_Info_Form.resx">
+      <DependentUpon>MultiButton_Info_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Helpers\Error\MultiItem_Info_Form.resx">
+      <DependentUpon>MultiItem_Info_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Common DBs\GeologyOfIranFormDB_FieldSelection.resx">
+      <DependentUpon>GeologyOfIranFormDB_FieldSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Common DBs\PredefinedValuesFormDB.resx">
+      <DependentUpon>PredefinedValuesFormDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Common DBs\PredefinedValuesFormDB_Selection.resx">
+      <DependentUpon>PredefinedValuesFormDB_Selection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Project-Rig-Well-Report\PrjRigWell_Selection.resx">
+      <DependentUpon>PrjRigWell_Selection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Helpers\Error\SingleItem_Info_Form.resx">
+      <DependentUpon>SingleItem_Info_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Helpers\Input\frmGenerateSiteEdition.resx">
+      <DependentUpon>frmGenerateSiteEdition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Helpers\Input\frmInput.resx">
+      <DependentUpon>frmInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Helpers\DGV\DGV_Filter.resx">
+      <DependentUpon>DGV_Filter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Helpers\DGV\ListFormButtons.resx">
+      <DependentUpon>ListFormButtons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Helpers\DGV\ListFormSelectionButtons.resx">
+      <DependentUpon>ListFormSelectionButtons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Helpers\Input\frmMultiInput.resx">
+      <DependentUpon>frmMultiInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MudLoss\MudLossFLAdditivesForm.resx">
+      <DependentUpon>MudLossFLAdditivesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MudVolManagement\MudVolManAddedWaterForm.resx">
+      <DependentUpon>MudVolManAddedWaterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MudVolManagement\MudVolManBuiltPrdForm.resx">
+      <DependentUpon>MudVolManBuiltPrdForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MudVolManagement\MudVolManTotalWellMergeForm.resx">
+      <DependentUpon>MudVolManTotalWellMergeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MudVolManagement\MudVolManTotalWellSelForMergeForm.resx">
+      <DependentUpon>MudVolManTotalWellSelForMergeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MudVolManagement\MudVolManTreatedPrdForm.resx">
+      <DependentUpon>MudVolManTreatedPrdForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Common DBs\CasingDataFormDB.resx">
+      <DependentUpon>CasingDataFormDB.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Common DBs\CasingDataFormDB_Selection.resx">
+      <DependentUpon>CasingDataFormDB_Selection.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Common DBs\DrillCollarDataFormDB.resx">
+      <DependentUpon>DrillCollarDataFormDB.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DrlOp\DrilliOpForm.resx">
+      <DependentUpon>DrilliOpForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Common DBs\DrillCollar_DrillPipe_HeavyWeigh_DataFormDB_Selection.resx">
+      <DependentUpon>DrillCollar_DrillPipe_HeavyWeigh_DataFormDB_Selection.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Common DBs\DrillingFluidSystemFormDB_Selection.resx">
+      <DependentUpon>DrillingFluidSystemFormDB_Selection.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Common DBs\DrillPipeDataFormDB.resx">
+      <DependentUpon>DrillPipeDataFormDB.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Images.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MudLoss\MudLossForm.resx">
+      <DependentUpon>MudLossForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Common DBs\GeneralEquipmentInventoryDataForm.resx">
+      <DependentUpon>GeneralEquipmentInventoryDataForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Common DBs\GeneralEquipmentInventoryDataForm_Selection.resx">
+      <DependentUpon>GeneralEquipmentInventoryDataForm_Selection.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Common DBs\GeologyOfIranFormDB.resx">
+      <DependentUpon>GeologyOfIranFormDB.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Common DBs\GeologyOfIranFormDB_DataSelection.resx">
+      <DependentUpon>GeologyOfIranFormDB_DataSelection.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Common DBs\GeologyOfIranFormDB_FormationSelection.resx">
+      <DependentUpon>GeologyOfIranFormDB_FormationSelection.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Common DBs\HeavyWeightFormDB.resx">
+      <DependentUpon>HeavyWeightFormDB.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Common DBs\HoleSizeFormDB.resx">
+      <DependentUpon>HoleSizeFormDB.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Common DBs\HoleSizeFormDB_Selection.resx">
+      <DependentUpon>HoleSizeFormDB_Selection.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Common DBs\HSE_PPE_DataFormDB.resx">
+      <DependentUpon>HSE_PPE_DataFormDB.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Common DBs\HSE_PPE_DataFormDB_Selection.resx">
+      <DependentUpon>HSE_PPE_DataFormDB_Selection.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Common DBs\IADCFormDB.resx">
+      <DependentUpon>IADCFormDB.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Common DBs\IADCFormDB_Selection.resx">
+      <DependentUpon>IADCFormDB_Selection.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Common DBs\LabEquipmentListFormDB.resx">
+      <DependentUpon>LabEquipmentListFormDB.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MudProp\MudPropForm.resx">
+      <DependentUpon>MudPropForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MudVolManagement\MudVolManagementForm.resx">
+      <DependentUpon>MudVolManagementForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Project-Rig-Well-Report\ProjectForm.resx">
+      <DependentUpon>ProjectForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\InvManagementForm.resx">
+      <DependentUpon>InvManagementForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Common DBs\DrillingFluidSystemFormDB.resx">
+      <DependentUpon>DrillingFluidSystemFormDB.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Common DBs\LabEquipmentListFormDB_Selection.resx">
+      <DependentUpon>LabEquipmentListFormDB_Selection.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Common DBs\PersonnelListDataFormDB.resx">
+      <DependentUpon>PersonnelListDataFormDB.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RemarkForm.resx">
+      <DependentUpon>RemarkForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReportingForm.resx">
+      <DependentUpon>ReportingForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Project-Rig-Well-Report\RigForm.resx">
+      <DependentUpon>RigForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SolidAnaForm.resx">
+      <DependentUpon>SolidAnaForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SolidConEq\SolidConEqForm.resx">
+      <DependentUpon>SolidConEqForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Common DBs\PersonnelListDataFormDB_Selection.resx">
+      <DependentUpon>PersonnelListDataFormDB_Selection.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Common DBs\ProductListFormDB.resx">
+      <DependentUpon>ProductListFormDB.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Forms\SolidConEq\SolidConEqScreenForm.resx">
+      <DependentUpon>SolidConEqScreenForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SolidConEq\SolidConEqUsedForm.resx">
+      <DependentUpon>SolidConEqUsedForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SplashForm.resx">
+      <DependentUpon>SplashForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StartupForm.resx">
+      <DependentUpon>StartupForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SuggestForm.resx">
+      <DependentUpon>SuggestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UnitConvForm.resx">
+      <DependentUpon>UnitConvForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Common DBs\ProductListFormDB_Selection.resx">
+      <DependentUpon>ProductListFormDB_Selection.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Project-Rig-Well-Report\WellForm.resx">
+      <DependentUpon>WellForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DrillingFluidsProgram\DrillingFluidsProgramForm.resx">
+      <DependentUpon>DrillingFluidsProgramForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Project-Rig-Well-Report\RigWellReportForm.resx">
+      <DependentUpon>RigWellReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Filter Forms\FilterByDateForm.resx">
+      <DependentUpon>FilterByDateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Filter Forms\FilterByDFSForm.resx">
+      <DependentUpon>FilterByDFSForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Filter Forms\FilterByDrilledIntervalForm.resx">
+      <DependentUpon>FilterByDrilledIntervalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Filter Forms\FilterByFormationForm.resx">
+      <DependentUpon>FilterByFormationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Filter Forms\FilterByHoleSectionForm.resx">
+      <DependentUpon>FilterByHoleSectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Filter Forms\FilterByRepNumForm.resx">
+      <DependentUpon>FilterByRepNumForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Filter Forms\FilterForm.resx">
+      <DependentUpon>FilterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Report Generator\Daily\DailyReportsXlsx.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DailyReportsXlsx.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Report Generator\ReportType.resx">
+      <DependentUpon>ReportType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Report Generator\frmUnitSelectionForReport.resx">
+      <DependentUpon>frmUnitSelectionForReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporting\Report Generator\Recap\RecapReportXlsx.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>RecapReportXlsx.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SiteEdition\Fresh.resx" Condition="'$(Configuration)'=='Debug[Office]' or '$(Configuration)'=='Release[Office]'">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Fresh.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Resources\SiteEdition\Fresh\10" />
+    <None Include="Resources\SiteEdition\Fresh\20" />
+    <None Include="Resources\SiteEdition\Fresh\30" />
+    <None Include="Resources\SiteEdition\Fresh\40" />
+    <None Include="Resources\SiteEdition\Fresh\50" />
+    <None Include="Web References\DMRWebService\ClientService.wsdl" />
+    <None Include="Web References\DMRWebService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Web References\DMRWebService\ClientService.disco" />
+    <None Include="Resources\PDFExcellLogo.png" />
+    <None Include="Resources\data-import-interface-symbol.png" />
+    <Content Include="Resources\tick.png" />
+    <None Include="Resources\loop.png" />
+    <None Include="Resources\forbidden.png" />
+    <None Include="Resources\eject.png" />
+    <None Include="Resources\edit.png" />
+    <None Include="Resources\enter.png" />
+    <None Include="Resources\plus_alt.png" />
+    <None Include="Resources\arrow_left.png" />
+    <None Include="Resources\arrow_down.png" />
+    <None Include="Resources\arrow_up.png" />
+    <None Include="Resources\arrow_right.png" />
+    <None Include="Resources\ReportsTemplates\Daily\Daily_DMR.xlsx" />
+    <None Include="Resources\ReportsTemplates\Daily\Daily_MaterialConsumption.xlsx" />
+    <None Include="Resources\ReportsTemplates\Daily\Daily_MaterialCost.xlsx" />
+    <None Include="Resources\ReportsTemplates\Daily\Daily_WellProgress.xlsx" />
+    <None Include="Resources\ReportsTemplates\Recap\Recap_HoleSectionMudMaterialConcentrationAndCostAnalysis.xlsx" />
+    <None Include="Resources\ReportsTemplates\Recap\Recap_HoleSectionSummary.xlsx" />
+    <None Include="Resources\ReportsTemplates\Recap\Recap_HoleSectionVolumeAnalysis.xlsx" />
+    <None Include="Resources\ReportsTemplates\Recap\Recap_HoleSectionVolumeAndCostAnalysis.xlsx" />
+    <None Include="Resources\settings_dark.png" />
+    <None Include="Resources\settings_clear.png" />
+    <None Include="Resources\flickr.png" />
+    <None Include="Resources\SiteEdition\Fresh\1" />
+    <None Include="Resources\SiteEdition\Fresh\2" />
+    <None Include="Resources\SiteEdition\Fresh\3" />
+    <None Include="Resources\warning.png" />
+    <None Include="Resources\user_dark.png" />
+    <None Include="Resources\user_clear.png" />
+    <None Include="Resources\tickbox_alt.png" />
+    <None Include="Resources\point_hand.png" />
+    <None Include="Resources\plus_light_alt.png" />
+    <None Include="Resources\page_add.png" />
+    <None Include="Resources\page.png" />
+    <None Include="Resources\minus_light_alt.png" />
+    <None Include="Resources\minus_alt.png" />
+    <None Include="Resources\info.png" />
+    <None Include="Resources\home_dark.png" />
+    <None Include="Resources\home_clear.png" />
+    <None Include="Resources\help_bag.png" />
+    <None Include="Resources\folder_dark.png" />
+    <None Include="Resources\folder_clear.png" />
+    <None Include="Resources\document_new.png" />
+    <None Include="Resources\clock.png" />
+    <None Include="Resources\calendar.png" />
+    <None Include="Resources\bookmark_alt.png" />
+    <None Include="Resources\bolt.png" />
+    <None Include="Resources\wrench.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://www.parsdrill.com:6238/ClientService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\DMRWebService\</RelPath>
+      <UpdateFromURL>http://www.parsdrill.com:6238/ClientService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>DMR_DMRWebService_ClientService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if "$(ConfigurationName)"=="Release[Office]" (
+     copy  "$(SolutionDir)SQL_DBs\PDF_DB_Office_v001.000.mdf"   "$(TargetDir)"
+) else if "$(ConfigurationName)"=="Release[Site]" (
+     copy  "$(SolutionDir)SQL_DBs\PDF_DB_Site_v001.000.mdf"   "$(TargetDir)"
+)</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>if "$(ConfigurationName)"=="Release[Office]" (
+
+     del   "$(ProjectDir)Resources\SiteEdition\Fresh\1"
+     del    "$(ProjectDir)Resources\SiteEdition\Fresh\2"
+     del    "$(ProjectDir)Resources\SiteEdition\Fresh\3"
+
+     copy  "$(ProjectDir)bin\Release[Site]\DMR.exe"   "$(ProjectDir)Resources\SiteEdition\Fresh\1"
+     copy  "$(ProjectDir)bin\Release[Site]\EPPlus.dll"   "$(ProjectDir)Resources\SiteEdition\Fresh\2"
+     copy  "$(ProjectDir)bin\Release[Site]\PDF_DB_Site_v001.000.mdf"   "$(ProjectDir)Resources\SiteEdition\Fresh\3"
+
+
+     del   "$(ProjectDir)Resources\SiteEdition\Fresh\10"
+     del    "$(ProjectDir)Resources\SiteEdition\Fresh\20"
+     del    "$(ProjectDir)Resources\SiteEdition\Fresh\30"
+     del    "$(ProjectDir)Resources\SiteEdition\Fresh\40"
+     del    "$(ProjectDir)Resources\SiteEdition\Fresh\50"
+
+     copy  "$(SolutionDir)Lock\AlxSSB.dll"   "$(ProjectDir)Resources\SiteEdition\Fresh\10"
+     copy  "$(SolutionDir)Lock\AxInterop.ARM.dll"   "$(ProjectDir)Resources\SiteEdition\Fresh\20"
+     copy  "$(SolutionDir)Lock\DMR.XmlSerializers.dll"   "$(ProjectDir)Resources\SiteEdition\Fresh\30"
+     copy  "$(SolutionDir)Lock\Interop.ARM.dll"   "$(ProjectDir)Resources\SiteEdition\Fresh\40"
+     copy  "$(SolutionDir)Lock\SysEnhanced.dll"   "$(ProjectDir)Resources\SiteEdition\Fresh\50"
+
+)
+</PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
