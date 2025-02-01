@@ -1,0 +1,105 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="DBPatch.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="FixQuery" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ALTER FUNCTION [dbo].[fn_Get_MudVolMan_TotalVolOfDFS_ByReportIdAndDfs] (@curRepID BigInt, @Dfs_AutoID INT, @ActLossFactor  DECIMAL(15, 5))
+RETURNS DECIMAL(15, 3)
+AS
+BEGIN
+	---------------------------------
+	DECLARE @mudVolManDFSID BigInt;
+	---------------------------------
+	SELECT @mudVolManDFSID = rmd.ID
+	FROM rt_Rep2MudVolManDFS rmd 
+	Where rmd.Dfs_AutoID = @Dfs_AutoID and rmd.ReportID = @curRepID
+	---------------------------------------------------------
+	DECLARE @WellID BigInt;
+
+	select @WellID = rw.WellID
+	from rt_Rig2Well rw join at_Report r on rw.ID = r.RigWellID
+	where r.ID = @curRepID
+	---------------------------------
+	DECLARE @RepNum Int;
+
+	select @RepNum = at_Report.Num from  at_Report where ID = @curRepID
+	---------------------------------
+
+	declare @availableVol as decimal(15, 5) = 0;
+
+	SELECT @availableVol = sum(isnull(Volume, 0))
+	FROM 
+	(
+		SELECT  (t.Vol) AS Volume
+		FROM rt_Rep2MudVolManDFS_RecTrans t
+		WHERE t.RecTrans_Flag = 0 and t.MudVolManDFS_ID = @mudVolManDFSID
+				
+		UNION ALL -- including duplicates
+
+		SELECT  -(t.Vol) AS Volume
+		FROM rt_Rep2MudVolManDFS_RecTrans t
+		WHERE t.RecTrans_Flag = 1 and t.MudVolManDFS_ID = @mudVolManDFSID
+
+		UNION ALL -- including duplicates
+
+		SELECT (BuiltRainVol + BuiltGainVol + BuiltStartVol) AS Volume
+		FROM rt_Rep2MudVolManDFS  WHERE ID  = @mudVolManDFSID   
+
+		UNION ALL -- including duplicates
+
+		SELECT (b.AddOil + b.AddSeaWater + b.AddDrillWater + b.AddLocalWater + b.AddDeWater + dbo.fn_Get_BuiltPrd_ChemicalVolume(b.ID)) AS Volume
+		FROM rt_Rep2MudVolManDFS_BuiltVol b
+		WHERE b.MudVolManDFS_ID = @mudVolManDFSID 
+		
+		UNION ALL -- including duplicates
+		
+		SELECT (t.AddOil + t.AddSeaWater + t.AddDrillWater + t.AddLocalWater + t.AddDeWater + dbo.fn_Get_TreatedPrd_ChemicalVolume(t.ID)) AS Volume
+		FROM rt_Rep2MudVolManDFS_TreatedVol t
+		WHERE t.MudVolManDFS_ID = @mudVolManDFSID
+		
+		UNION ALL -- including duplicates
+		
+		SELECT (u.UsedVol /*+ dbo.fn_Get_BuiltUsingPrd_ChemicalVolume(u.ID)*/) AS Volume
+		FROM rt_Rep2MudVolManDFS_BuiltUsingOthers u
+		WHERE u.MudVolManDFS_ID = @mudVolManDFSID
+
+		UNION ALL -- including duplicates
+
+		--Used for others
+		SELECT -(u.UsedVol) AS Volume
+		FROM rt_Rep2MudVolManDFS_BuiltUsingOthers u
+		join rt_Rep2MudVolManDFS rmd on u.MudVolManDFS_ID = rmd.ID
+		WHERE  rmd.ReportID = @curRepID and rmd.Dfs_AutoID &lt;&gt; @Dfs_AutoID and u.Dfs_AutoID = @Dfs_AutoID
+
+		UNION ALL -- including duplicates
+
+		------------LOSSES--------------
+		select -(Vol) from rt_Rep2MudLossRecord where ReportID = @curRepID and Dfs_AutoID = @Dfs_AutoID
+		
+		UNION ALL -- including duplicates
+		
+		select -(Vol) from rt_Rep2MudLossFormation where ReportID = @curRepID and Dfs_AutoID = @Dfs_AutoID
+		
+		UNION ALL -- including duplicates
+		
+		select -(rscu.Used*rscu.Discharge*@ActLossFactor) 
+		from rt_Rep2SolidControl rsc join rt_Rep2SolidControlUsed rscu on rsc.ID = rscu.R2SC_ID 
+		where rsc.ReportID = @curRepID and rscu.Dfs_AutoID = @Dfs_AutoID
+
+		UNION ALL -- including duplicates
+
+		select -(AtEndMudRetWasteVol+AtEndMudRetOverVol+DailyMudRetWasteVol+DailyMudRetOverVol) /*+ DailyMudRetPitVol + AtEndMudRetPitVol - DailyStringDisp - AtEndMudDispVol*/
+		from  rt_Rep2MudVolManDFS where ID = @mudVolManDFSID
+
+		UNION ALL -- including duplicates
+
+		select - dbo.fn_Get_AfterMergeVol_ByWellID_UptoRepNum(@WellID, @RepNum, @Dfs_AutoID) AS Volume
+
+	) as temp
+	---------------------------------------------------------
+	RETURN @availableVol;
+	---------------------------------------------------------
+END</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

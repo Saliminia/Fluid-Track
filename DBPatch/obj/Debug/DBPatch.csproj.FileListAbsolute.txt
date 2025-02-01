@@ -1,0 +1,8 @@
+C:\PMAProjects\Fluid Track\DMR\DBPatch\bin\Debug\DBPatch.exe.config
+C:\PMAProjects\Fluid Track\DMR\DBPatch\bin\Debug\DBPatch.exe
+C:\PMAProjects\Fluid Track\DMR\DBPatch\bin\Debug\DBPatch.pdb
+C:\PMAProjects\Fluid Track\DMR\DBPatch\obj\Debug\DBPatch.frmUpdate.resources
+C:\PMAProjects\Fluid Track\DMR\DBPatch\obj\Debug\DBPatch.Properties.Resources.resources
+C:\PMAProjects\Fluid Track\DMR\DBPatch\obj\Debug\DBPatch.csproj.GenerateResource.Cache
+C:\PMAProjects\Fluid Track\DMR\DBPatch\obj\Debug\DBPatch.exe
+C:\PMAProjects\Fluid Track\DMR\DBPatch\obj\Debug\DBPatch.pdb
